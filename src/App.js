@@ -4,7 +4,7 @@ import Tasks from "./components/Tasks"
 
 const App = () => {
 
-  const [tasks, setTasks] = useState([
+  const [tasks] = useState([
     {
       id: 1,
       text: "Doctors Appointment",
