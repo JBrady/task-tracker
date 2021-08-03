@@ -4,7 +4,7 @@ import Tasks from "./components/Tasks"
 
 const App = () => {
 
-  const [tasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "Doctors Appointment",
@@ -24,10 +24,16 @@ const App = () => {
       reminder: false,
     },
   ]);
+
+// Delete Task
+const deleteTask = (id) => {
+  setTasks(tasks.filter((singleTask) => singleTask.id !==id))
+}
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} /> : 'No tasks to show'}
     </div>
   )
 }
